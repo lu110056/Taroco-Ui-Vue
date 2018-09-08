@@ -1,5 +1,6 @@
 import util from '@/libs/util.js'
 import {loginByUsername, getUserInfo, logout} from '@/api/login'
+import { GetMenu } from '@/api/menu'
 
 export default {
   namespaced: true,
@@ -30,9 +31,21 @@ export default {
           // 用户登陆后查询用户信息: 角色 数据权限
           dispatch('getUserInfo')
             .then(res => {
-              // 跳转路由
-              vm.$router.push({
-                name: 'index'
+              GetMenu().then(res => {
+                // 设置用户菜单
+                commit('d2admin/user/SET_MENU', res.data, { root: true })
+                let oRoutes = util.formatRoutes(res.data)
+                // 多页面控制: 处理路由 得到每一级的路由设置
+                commit('d2admin/page/init', oRoutes, { root: true })
+                // 设置侧边栏菜单
+                commit('d2admin/menu/asideSet', res.data, { root: true })
+                // 设置顶栏菜单
+                commit('d2admin/menu/headerSet', res.data, { root: true })
+                vm.$router.addRoutes(oRoutes)
+                // 跳转路由
+                vm.$router.push({
+                  name: 'index'
+                })
               })
             })
         })

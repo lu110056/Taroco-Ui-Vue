@@ -44,31 +44,31 @@ export default {
       state.accessToken = await this.dispatch('d2admin/db/get', {
         dbName: 'sys',
         path: 'user.accessToken',
-        defaultValue: null,
+        defaultValue: '',
         user: true
       })
       state.refreshToken = await this.dispatch('d2admin/db/get', {
         dbName: 'sys',
         path: 'user.refreshToken',
-        defaultValue: null,
+        defaultValue: '',
         user: true
       })
       state.roles = await this.dispatch('d2admin/db/get', {
         dbName: 'sys',
         path: 'user.roles',
-        defaultValue: null,
+        defaultValue: [],
         user: true
       })
       state.menu = await this.dispatch('d2admin/db/get', {
         dbName: 'sys',
         path: 'user.menu',
-        defaultValue: null,
+        defaultValue: [],
         user: true
       })
       let permissions = await this.dispatch('d2admin/db/get', {
         dbName: 'sys',
         path: 'user.permissions',
-        defaultValue: null,
+        defaultValue: [],
         user: true
       })
       const list = {}

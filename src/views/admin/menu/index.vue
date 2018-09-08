@@ -1,14 +1,13 @@
 <template>
-<el-card>
-  <div class="app-container calendar-list-container">
-    <div class="filter-container">
+  <d2-container>
+    <!-- header按钮组 -->
+    <template slot="header">
       <el-button-group>
-        <el-button type="primary" v-if="menuManager_btn_add" icon="el-icon-plus" @click="handlerAdd">新 增</el-button>
-        <el-button type="primary" v-if="menuManager_btn_edit" icon="el-icon-edit" @click="handlerEdit">编 辑</el-button>
-        <el-button type="primary" v-if="menuManager_btn_del" icon="el-icon-delete" @click="handleDelete">删 除</el-button>
+        <el-button size="mini" type="primary" v-if="menuManager_btn_add" icon="el-icon-plus" @click="handlerAdd">新 增</el-button>
+        <el-button size="mini" type="primary" v-if="menuManager_btn_edit" icon="el-icon-edit" @click="handlerEdit">编 辑</el-button>
+        <el-button size="mini" type="primary" v-if="menuManager_btn_del" icon="el-icon-delete" @click="handleDelete">删 除</el-button>
       </el-button-group>
-    </div>
-
+    </template>
     <el-row>
       <el-col :span="8">
         <el-tree
@@ -40,7 +39,8 @@
             <el-input v-model="form.permission" :disabled="formEdit" placeholder="请输入权限标识"></el-input>
           </el-form-item>
           <el-form-item label="图标" prop="icon">
-            <el-input v-model="form.icon" :disabled="formEdit" placeholder="请输入图标"></el-input>
+            <!-- <el-input v-model="form.icon" :disabled="formEdit" placeholder="请输入图标"></el-input> -->
+            <d2-icon-select v-model="form.icon" placeholder="请选择图标"></d2-icon-select>
           </el-form-item>
           <el-form-item label="资源路径" prop="url">
             <el-input v-model="form.url" :disabled="formEdit" placeholder="请输入资源路径"></el-input>
@@ -52,7 +52,7 @@
           </el-form-item>
           <el-form-item label="类型" prop="type">
             <el-select class="filter-item" v-model="form.type"  :disabled="formEdit"  placeholder="请输入资源请求类型">
-              <el-option v-for="item in  typeOptions" :key="item" :label="item | typeFilter" :value="item"> </el-option>
+              <el-option v-for="item in typeOptions" :key="item" :label="item | typeFilter" :value="item"> </el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="排序" prop="sort">
@@ -64,26 +64,30 @@
           <el-form-item label="前端地址"   prop="component">
             <el-input v-model="form.path" :disabled="formEdit" placeholder="iframe嵌套地址"></el-input>
           </el-form-item>
-          <el-form-item v-if="formStatus == 'update'">
-            <el-button type="primary" @click="update" icon="el-icon-check">更 新</el-button>
-            <el-button @click="onCancel">取消</el-button>
-          </el-form-item>
-          <el-form-item v-if="formStatus == 'create'">
-            <el-button type="primary" @click="create" icon="el-icon-check">保 存</el-button>
-            <el-button @click="onCancel" icon="el-icon-close">取消</el-button>
-          </el-form-item>
         </el-form>
       </el-col>
     </el-row>
-  </div>
-</el-card>
+    <!-- footer -->
+    <template slot="footer" v-if="formStatus == 'create'">
+      <div style="margin:-5px; text-align:center">
+        <el-button size="small" @click="onCancel" icon="el-icon-close">取消</el-button>
+        <el-button size="small" type="primary" @click="create" icon="el-icon-check">保 存</el-button>
+      </div>
+    </template>
+    <template slot="footer" v-if="formStatus == 'update'">
+      <div style="margin:-5px; text-align:center">
+        <el-button size="small" @click="onCancel" icon="el-icon-close">取消</el-button>
+        <el-button size="small" type="primary" @click="update" icon="el-icon-check">更 新</el-button>
+      </div>
+    </template>
+  </d2-container>
 </template>
 
 <script>
 import { fetchTree, getObj, addObj, delObj, putObj } from '@/api/menu'
 import { mapGetters } from 'vuex'
 export default {
-  name: 'menu',
+  name: 'user-menu',
   data () {
     return {
       list: null,
