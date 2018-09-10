@@ -17,6 +17,8 @@ if docker images | grep docker_taroco-ui:latest
         docker rmi docker_taroco-ui:latest
 fi
 
+unzip dist.zip
+
 docker build --rm -t docker_taroco-ui:latest .
 
 docker run -p 80:80 --name taroco-ui -d docker_taroco-ui:latest
