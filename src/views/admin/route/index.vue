@@ -67,7 +67,7 @@
         </el-pagination>
     </template>
     <!-- 表单弹窗 -->
-    <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible" width="400px">
+    <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible" width="400px" :before-close="dialogClose">
       <el-form :model="form" :rules="rules" ref="form" label-width="100px">
         <el-form-item label="服务名称" prop="serviceId">
           <el-input v-model="form.serviceId" placeholder="请输入服务名称" clearable></el-input>
@@ -289,6 +289,12 @@ export default {
           })
         }
       })
+    },
+    dialogClose (done) {
+      this.$refs.form.resetFields()
+      this.scope = []
+      this.authorizedGrantTypes = []
+      done()
     }
   }
 }
