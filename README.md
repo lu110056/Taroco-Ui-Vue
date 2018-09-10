@@ -1,5 +1,5 @@
 # Taroco [演示地址](http://111.231.192.110)
-- [配套前端地址](https://github.com/liuht777/Taroco-UI)
+- [配套前端地址](https://github.com/liuht777/Taroco-UI-NEW)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/liuht777/Taroco)
