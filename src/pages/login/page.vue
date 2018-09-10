@@ -4,7 +4,7 @@
     <div class="layer flex-center">
       <!-- logo部分 -->
       <div class="logo-group">
-        <img src="./image/logo.png" alt="logo">
+        <h3>登录到TAROCO</h3>
       </div>
       <!-- 表单部分 -->
       <div class="form-group">

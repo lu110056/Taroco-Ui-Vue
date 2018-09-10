@@ -27,9 +27,12 @@
   .logo-group {
     margin-top: -75px - 70px;
     position: relative;
-    top: 75px;
+    top: 70px;
     img {
       height: 140px;
+    }
+    h3 {
+      color: $color-primary
     }
   }
   // 登陆表单
