@@ -1,13 +1,13 @@
 <template>
-  <el-card shadow="never">
-    <div style="text-align: right">
-      <el-button icon="el-icon-refresh" @click="refresh"></el-button>
-    </div>
+  <d2-container>
+    <template slot="header">
+      <el-button size="mini" icon="el-icon-refresh" @click="refresh">刷 新</el-button>
+    </template>
     <el-table
       :data="serviceList"
-      tooltip-effect="dark"
+      element-loading-text="拼命加载中..."
+      highlight-current-row
       stripe
-      size="large"
       style="width: 100%">
 
       <el-table-column type="expand">
@@ -42,7 +42,7 @@
         </template>
       </el-table-column>
     </el-table>
-  </el-card>
+  </d2-container>
 </template>
 
 <script>
@@ -94,7 +94,7 @@ export default {
         path: '/myiframe/urlPath',
         query: {
           src: url,
-          name: 'Turbine监控'
+          title: 'Turbine监控'
         }
       })
     }

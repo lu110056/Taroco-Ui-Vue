@@ -1,6 +1,7 @@
 import util from '@/libs/util.js'
 import {loginByUsername, getUserInfo, logout} from '@/api/login'
 import { GetMenu } from '@/api/menu'
+import { frameInRoutes } from '@/router/routes'
 
 export default {
   namespaced: true,
@@ -36,7 +37,7 @@ export default {
                 commit('d2admin/user/SET_MENU', res.data, { root: true })
                 let oRoutes = util.formatRoutes(res.data)
                 // 多页面控制: 处理路由 得到每一级的路由设置
-                commit('d2admin/page/init', oRoutes, { root: true })
+                commit('d2admin/page/init', [].concat(frameInRoutes, oRoutes), { root: true })
                 // 设置侧边栏菜单
                 commit('d2admin/menu/asideSet', res.data, { root: true })
                 // 设置顶栏菜单

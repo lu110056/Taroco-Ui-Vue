@@ -1,5 +1,6 @@
 // 设置文件
 import setting from '@/setting.js'
+import { validatenull } from '@/libs/validate.js'
 
 export default {
   namespaced: true,
@@ -55,6 +56,10 @@ export default {
         // 页面以前没有打开过
         let page = state.pool.find(t => t.name === name)
         if (page) {
+          // 用参数的title作为窗口名称
+          if (query && !validatenull(query.title)) {
+            page.meta.title = query.title
+          }
           this.commit('d2admin/page/add', {
             tag: page,
             params,

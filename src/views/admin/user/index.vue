@@ -12,7 +12,7 @@
             </el-input>
           </el-form-item>
           <el-form-item>
-            <el-button  type="default" @click="handleFilter" icon="el-icon-search">搜 索</el-button>
+            <el-button type="default" @click="handleFilter" icon="el-icon-search">搜 索</el-button>
           </el-form-item>
           <el-form-item style="float: right">
             <el-button v-if="sys_user_add" @click="handleCreate" type="primary" icon="el-icon-plus">新 增</el-button>
@@ -72,7 +72,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" class-name="status-col" label="状态">
+      <el-table-column align="center" label="状态">
         <template slot-scope="scope">
           <el-tag>{{scope.row.delFlag | statusFilter}}</el-tag>
         </template>
@@ -100,7 +100,7 @@
           style="margin: -10px;">
         </el-pagination>
     </template>
-    <!-- 部署筛选 -->
+    <!-- 部门筛选 -->
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogDeptVisible" width="600px">
       <el-tree class="filter-tree" :data="treeDeptData" :default-checked-keys="checkedKeys" check-strictly node-key="id" highlight-current ref="deptTree" :props="defaultProps" @node-click="getNodeData" default-expand-all>
       </el-tree>

@@ -1,15 +1,23 @@
 <template>
-<el-card>
-  <div class="app-container calendar-list-container">
-    <div class="filter-container">
-      <div style="width: 200px;" class="filter-item">
-        <el-select v-model="listQuery.type" filterable placeholder="请选择" clearable>
-          <el-option v-for="item in dicts" :key="item.value" :label="item.label" :value="item.value">
-          </el-option>
-        </el-select>
-      </div>
-      <el-button class="filter-item" type="default" icon="el-icon-search" @click="handleFilter">搜 索</el-button>
-    </div>
+  <d2-container>
+    <!-- header 查询条件 -->
+    <template slot="header">
+      <el-form
+        :inline="true"
+        :model="listQuery"
+        size="mini"
+        style="margin-bottom: -18px;">
+          <el-form-item label="日志类型" prop="type">
+            <el-select v-model="listQuery.type" filterable placeholder="请选择" clearable>
+              <el-option v-for="item in dicts" :key="item.value" :label="item.label" :value="item.value">
+              </el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="default" icon="el-icon-search" @click="handleFilter">搜 索</el-button>
+          </el-form-item>
+      </el-form>
+    </template>
     <el-table
             :key='tableKey'
             :data="list"
@@ -75,12 +83,21 @@
         </template>
       </el-table-column>
     </el-table>
-    <div v-show="!listLoading" class="pagination-container">
-      <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="listQuery.page" :page-sizes="[10,20,30, 50]" :page-size="listQuery.limit" layout="total, sizes, prev, pager, next, jumper" :total="total">
-      </el-pagination>
-    </div>
-  </div>
-</el-card>
+    <!-- footer 分页条 -->
+    <template slot="footer">
+        <el-pagination
+          background
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page.sync="listQuery.page"
+          :page-sizes="[10,20,30,50]"
+          :page-size="listQuery.limit"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="total"
+          style="margin: -10px;">
+        </el-pagination>
+    </template>
+  </d2-container>
 </template>
 
 <script>

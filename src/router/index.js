@@ -4,6 +4,7 @@ import util from '@/libs/util.js'
 import { validatenull } from '@/libs/validate.js'
 import store from '@/store/index'
 import { GetMenu } from '@/api/menu'
+import { frameInRoutes } from '@/router/routes'
 
 // 路由数据
 import routes from './routes'
@@ -28,7 +29,7 @@ router.beforeEach((to, from, next) => {
       store.commit('d2admin/user/SET_MENU', res.data)
       let oRoutes = util.formatRoutes(res.data)
       // 多页面控制: 处理路由 得到每一级的路由设置
-      store.commit('d2admin/page/init', oRoutes)
+      store.commit('d2admin/page/init', [].concat(frameInRoutes, oRoutes))
       // 设置侧边栏菜单
       store.commit('d2admin/menu/asideSet', res.data)
       // 设置顶栏菜单
@@ -66,7 +67,7 @@ router.afterEach(to => {
   // 多页控制 打开新的页面
   app.$store.commit('d2admin/page/open', { name, params, query })
   // 更改标题
-  util.title(to.meta.title)
+  util.title(to.query.title ? to.query.title : to.meta.title)
 })
 
 export default router

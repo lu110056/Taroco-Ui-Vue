@@ -98,7 +98,7 @@ export default {
         case 'a':
           // 详情
           this.$router.push({
-            path: '/serviceInfo',
+            path: '/service/info',
             query: {
               serviceName: row.appName,
               instanceId: row.instanceId
@@ -135,7 +135,7 @@ export default {
             path: '/myiframe/urlPath',
             query: {
               src: url,
-              name: 'Turbine监控'
+              title: 'Turbine监控'
             }
           })
           break

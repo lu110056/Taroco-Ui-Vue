@@ -1,13 +1,24 @@
 <template>
-<el-card>
-  <div class="app-container calendar-list-container">
-    <div class="filter-container">
-      <el-input @keyup.enter.native="handleFilter" style="width: 200px;" class="filter-item" placeholder="类型" v-model="listQuery.type">
-      </el-input>
-      <el-button class="filter-item" type="default" icon="el-icon-search" @click="handleFilter">搜 索</el-button>
-      <el-button v-if="sys_dict_add" class="filter-item" style="float: right" @click="handleCreate" type="primary" icon="el-icon-plus">新 增
-      </el-button>
-    </div>
+  <d2-container>
+    <!-- header 查询条件 -->
+    <template slot="header">
+      <el-form
+        :inline="true"
+        :model="listQuery"
+        size="mini"
+        style="margin-bottom: -18px;">
+          <el-form-item label="类型" prop="type">
+            <el-input @keyup.enter.native="handleFilter" style="width: 200px;" placeholder="类型" v-model="listQuery.type">
+            </el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="default" icon="el-icon-search" @click="handleFilter">搜 索</el-button>
+          </el-form-item>
+          <el-form-item style="float: right">
+            <el-button v-if="sys_dict_add" style="float: right" @click="handleCreate" type="primary" icon="el-icon-plus">新 增</el-button>
+          </el-form-item>
+      </el-form>
+    </template>
     <el-table
           :key='tableKey'
           :data="list"
@@ -63,10 +74,20 @@
         </template>
       </el-table-column>
     </el-table>
-    <div v-show="!listLoading" class="pagination-container">
-      <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="listQuery.page" :page-sizes="[10,20,30, 50]" :page-size="listQuery.limit" layout="total, sizes, prev, pager, next, jumper" :total="total">
-      </el-pagination>
-    </div>
+    <!-- footer 分页条 -->
+    <template slot="footer">
+        <el-pagination
+          background
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page.sync="listQuery.page"
+          :page-sizes="[10,20,30,50]"
+          :page-size="listQuery.limit"
+          layout="total, sizes, prev, pager, next, jumper"
+          :total="total"
+          style="margin: -10px;">
+        </el-pagination>
+    </template>
     <el-dialog :title="textMap[dialogStatus]" :visible.sync="dialogFormVisible" width="400px">
       <el-form :model="form" :rules="rules" ref="form" label-width="100px">
         <el-form-item label="编号" prop="id" v-if="dialogStatus == 'update'">
@@ -97,8 +118,7 @@
         <el-button v-else type="primary" @click="update('form')" icon="el-icon-check">修 改</el-button>
       </div>
     </el-dialog>
-  </div>
-</el-card>
+  </d2-container>
 </template>
 
 <script>

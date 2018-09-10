@@ -38,7 +38,7 @@
                 </template>
             </el-table-column>
             <el-table-column
-                width="100"
+                width="110"
                 label="花费时间(ms)">
                 <template slot-scope="scope">
                     <span>{{ scope.row.info.timeTaken }}</span>
@@ -47,7 +47,7 @@
             <el-table-column
                 label="请求时间">
                 <template slot-scope="scope">
-                    <span>{{ $moment(scope.row.timestamp).format("YYYY-MM-DD HH:mm:ss") }}</span>
+                    <span>{{scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}')}}</span>
                 </template>
             </el-table-column>
             <el-table-column
