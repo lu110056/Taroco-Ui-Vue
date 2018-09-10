@@ -81,6 +81,9 @@
         img {
           height: 60px;
         }
+        h1, h2 {
+          color: $color-primary
+        }
       }
       // 折叠侧边栏切换按钮
       .toggle-aside-btn {
