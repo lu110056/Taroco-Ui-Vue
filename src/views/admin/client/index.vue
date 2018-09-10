@@ -215,7 +215,7 @@ export default {
               message: '请选择授权模式',
               type: 'warning'
             })
-            return;
+            return
           }
           if (validatenull(this.scope)) {
             this.$message({
@@ -223,7 +223,7 @@ export default {
               message: '请选择scope',
               type: 'warning'
             })
-            return;
+            return
           }
           this.form.authorizedGrantTypes = this.authorizedGrantTypes.join(',')
           this.form.scope = this.scope.join(',')
@@ -248,7 +248,7 @@ export default {
               message: '请选择授权模式',
               type: 'warning'
             })
-            return;
+            return
           }
           if (validatenull(this.scope)) {
             this.$message({
@@ -256,7 +256,7 @@ export default {
               message: '请选择scope',
               type: 'warning'
             })
-            return;
+            return
           }
           this.form.authorizedGrantTypes = this.authorizedGrantTypes.join(',')
           this.form.scope = this.scope.join(',')
