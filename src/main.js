@@ -13,14 +13,11 @@ import d2Admin from '@/plugin/d2admin'
 // 菜单和路由设置
 import router from './router'
 import { frameInRoutes } from '@/router/routes'
-import AVUE from 'avue-cli/lib/avue.js'
 // 全局filter
 import * as filters from './filters'
 
 // 核心插件
 Vue.use(d2Admin)
-// avue crud
-Vue.use(AVUE)
 
 // 全局filter
 Object.keys(filters).forEach(key => {

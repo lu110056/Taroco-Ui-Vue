@@ -72,7 +72,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" class-name="status-col" label="状态">
+      <el-table-column align="center" label="状态">
         <template slot-scope="scope">
           <el-tag>{{scope.row.delFlag | statusFilter}}</el-tag>
         </template>
