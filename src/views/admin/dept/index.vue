@@ -1,14 +1,13 @@
 <template>
-<el-card>
-  <div class="app-container calendar-list-container">
-    <div class="filter-container">
+  <d2-container>
+    <!-- header按钮组 -->
+    <template slot="header">
       <el-button-group>
-        <el-button type="primary" v-if="deptManager_btn_add" icon="el-icon-plus" @click="handlerAdd">新 增</el-button>
-        <el-button type="primary" v-if="deptManager_btn_edit" icon="el-icon-edit" @click="handlerEdit">编 辑</el-button>
-        <el-button type="primary" v-if="deptManager_btn_del" icon="el-icon-delete" @click="handleDelete">删 除</el-button>
+        <el-button size="mini" type="primary" v-if="deptManager_btn_add" icon="el-icon-plus" @click="handlerAdd">新 增</el-button>
+        <el-button size="mini" type="primary" v-if="deptManager_btn_edit" icon="el-icon-edit" @click="handlerEdit">编 辑</el-button>
+        <el-button size="mini" type="primary" v-if="deptManager_btn_del" icon="el-icon-delete" @click="handleDelete">删 除</el-button>
       </el-button-group>
-    </div>
-
+    </template>
     <el-row>
       <el-col :span="8" style='margin-top:15px;'>
         <el-tree
@@ -36,19 +35,23 @@
           <el-form-item label="排序" prop="orderNum">
             <el-input v-model="form.orderNum" :disabled="formEdit" placeholder="请输入排序"></el-input>
           </el-form-item>
-          <el-form-item v-if="formStatus == 'update'">
-            <el-button type="primary" @click="update" icon="el-icon-check">更新</el-button>
-            <el-button @click="onCancel" icon="el-icon-close">取消</el-button>
-          </el-form-item>
-          <el-form-item v-if="formStatus == 'create'">
-            <el-button type="primary" @click="create" icon="el-icon-check">保存</el-button>
-            <el-button @click="onCancel" icon="el-icon-close">取消</el-button>
-          </el-form-item>
         </el-form>
       </el-col>
     </el-row>
-  </div>
-</el-card>
+    <!-- footer -->
+    <template slot="footer" v-if="formStatus == 'create'">
+      <div style="margin:-5px; text-align:center">
+        <el-button size="small" @click="onCancel" icon="el-icon-close">取消</el-button>
+        <el-button size="small" type="primary" @click="create" icon="el-icon-check">保 存</el-button>
+      </div>
+    </template>
+    <template slot="footer" v-if="formStatus == 'update'">
+      <div style="margin:-5px; text-align:center">
+        <el-button size="small" @click="onCancel" icon="el-icon-close">取消</el-button>
+        <el-button size="small" type="primary" @click="update" icon="el-icon-check">更 新</el-button>
+      </div>
+    </template>
+  </d2-container>
 </template>
 
 <script>
