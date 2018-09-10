@@ -20,6 +20,21 @@ const frameIn = [
         component: () => import('@/pages/index')
       }
     ]
+  },
+  {
+    path: '/myiframe',
+    redirect: '/myiframe',
+    component: layoutHeaderAside,
+    children: [
+      {
+        path: ':routerPath',
+        name: 'iframe',
+        meta: {
+          title: 'iframe'
+        },
+        component: () => import('@/pages/iframe')
+      }
+    ]
   }
 ]
 

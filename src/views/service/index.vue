@@ -94,7 +94,7 @@ export default {
         path: '/myiframe/urlPath',
         query: {
           src: url,
-          name: 'Turbine监控'
+          title: 'Turbine监控'
         }
       })
     }
