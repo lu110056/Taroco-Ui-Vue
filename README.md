@@ -65,6 +65,10 @@ Spring Cloud本身已经封装得足够简单，也够丰富。也许正是因�
 - Nginx [http://nginx.org/en/download.html](http://nginx.org/en/download.html "Nginx")
 - Jenkins [http://updates.jenkins-ci.org/download/war/](http://updates.jenkins-ci.org/download/war/ "Jenkins")
 
+### 友情链接
+
+- [D2-admin](https://github.com/d2-projects/d2-admin)
+
 ## LICENSE
 
 [MIT](LICENSE "MIT")

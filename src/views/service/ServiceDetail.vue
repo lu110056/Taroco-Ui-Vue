@@ -1,31 +1,31 @@
 /** 服务实例详情 */
 <template>
-    <el-card shadow="never">
-        <div class="top">
-            <span class="name">服务名称: {{serviceName}}</span>&nbsp;&nbsp;
-            <span class="name">实例ID: {{instanceId}} </span>
-        </div>
-        <el-tabs v-model="activeName" style="padding: 0 10px;">
-            <el-tab-pane label="服务日志" name="logger">
-                <service-logger :instanceId="instanceId"></service-logger>
-            </el-tab-pane>
-            <el-tab-pane label="服务指标" name="metrics">
-                <service-metrics :instanceId="instanceId"></service-metrics>
-            </el-tab-pane>
-            <el-tab-pane label="映射列表" name="mappings">
-                <service-mappings :instanceId="instanceId"></service-mappings>
-            </el-tab-pane>
-            <el-tab-pane label="环境参数" name="envs">
-                <service-envs :instanceId="instanceId"></service-envs>
-            </el-tab-pane>
-            <el-tab-pane label="请求追踪" name="trace">
-                <service-trace :instanceId="instanceId"></service-trace>
-            </el-tab-pane>
-            <el-tab-pane name="heapdump">
-                <span slot="label"><el-button type="text" @click="threadDump">线程DUMP</el-button></span>
-            </el-tab-pane>
-        </el-tabs>
-    </el-card>
+  <d2-container>
+    <div class="top" slot="header">
+      <span class="name">服务名称: {{serviceName}}</span>&nbsp;&nbsp;
+      <span class="name">实例ID: {{instanceId}} </span>
+    </div>
+    <el-tabs v-model="activeName" style="padding: 0 10px;">
+      <el-tab-pane label="服务日志" name="logger">
+        <service-logger :instanceId="instanceId"></service-logger>
+      </el-tab-pane>
+      <el-tab-pane label="服务指标" name="metrics">
+        <service-metrics :instanceId="instanceId"></service-metrics>
+      </el-tab-pane>
+      <el-tab-pane label="映射列表" name="mappings">
+        <service-mappings :instanceId="instanceId"></service-mappings>
+      </el-tab-pane>
+      <el-tab-pane label="环境参数" name="envs">
+        <service-envs :instanceId="instanceId"></service-envs>
+      </el-tab-pane>
+      <el-tab-pane label="请求追踪" name="trace">
+        <service-trace :instanceId="instanceId"></service-trace>
+      </el-tab-pane>
+      <el-tab-pane name="heapdump">
+        <span slot="label"><el-button type="text" @click="threadDump">线程DUMP</el-button></span>
+      </el-tab-pane>
+    </el-tabs>
+  </d2-container>
 </template>
 
 <script>
@@ -64,10 +64,6 @@ export default {
 
 <style lang="scss" scoped>
     .top{
-        //margin-top: -10px;
-        margin-bottom: 10px;
-        //background-color: #2d8cf0;
-        //padding: 15px 10px;
         a{
             cursor: pointer;
             color: #409EFF;
