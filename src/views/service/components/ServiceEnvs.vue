@@ -9,7 +9,7 @@
                                 <i class="el-icon-info"></i> {{item}}
                             </h3>
                         </template>
-                        <div v-for="(value, name) in key" :key="value" class="item">
+                        <div v-for="(value, name) in key" :key="name" class="item">
                             <span>{{name}}</span>
                             <span class="value">{{value}}</span>
                         </div>
