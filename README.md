@@ -26,12 +26,12 @@ Spring Cloud 本身已经封装得足够简单，也够丰富。也许正是因�
 
 * Spring Cloud Eureka 注册中心
 * Spring Cloud Config Server 配置中心，统一管理配置信息
-* Spring Cloud Zuul Gateway统一微服务网关配置，支持动态路由配置
-* 基于spring-boot-starter-actuator的自己实现的服务治理。包括日志、变量、映射等情况。
-* 基于Hystrix的聚合监控页面，包括单个服务和服务多个实例的监控。
-* 基于Spring Security OAuth2的权限认证系统。采用JWT RSA非对称加密的形式进行token加密解密。
+* Spring Cloud Zuul Gateway 统一微服务网关配置，支持动态路由配置
+* 基于 spring-boot-starter-actuator 的自实现的服务治理。包括日志、变量、映射等情况。
+* 基于 Hystrix 的聚合监控页面，包括单个服务和服务多个实例的监控。
+* 基于 Spring Security OAuth2 的权限认证系统。采用JWT RSA非对称加密的形式进行 token 加密解密。
 * 支持基于权重以及基于标签的服务路由，支持动态配置服务权重及标签信息。通过控制用户标签以及动态路由的配置，满足各种各样请求策略。
-* 基于角色的RBAC权限控制。支持数据权限控制。
+* 基于角色的RBAC权限控制(用户、部门、角色、菜单、日志、字典、动态路由、oauth2 客户端)，并且支持数据权限控制。
 
 ### 开发环境
 
@@ -41,9 +41,7 @@ Spring Cloud 本身已经封装得足够简单，也够丰富。也许正是因�
 * Maven 3.0+
 * Redis 3.0+
 * MySQL 5.7
-* Node.js 8+
-* Npm 5+
-* vue 2.0+
+* IDEA
 
 ### 前端
 
