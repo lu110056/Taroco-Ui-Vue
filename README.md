@@ -6,25 +6,26 @@
 
 ## 前言
 
-'Taroco'是一整套的微服务企业级解决方案。是微服务敏捷开发的代表。
+'Taroco' 是一整套的微服务企业级解决方案。是微服务敏捷开发的代表。
 
 ## 项目介绍
 
-[Spring Cloud](https://projects.spring.io/spring-cloud/)是一个微服务框架，相比Dubbo等RPC框架, Spring Cloud提供更全面的分布式系统解决方案。Spring 
-Cloud对微服务基础框架Netflix的多个开源组件进行了封装，同时又实现了和云端平台以及和Spring Boot开发框架的集成。Spring 
-Cloud为微服务架构开发涉及的统一认证，配置管理，服务治理，熔断机制，动态路由等提供了一种简单的开发方式。
+[Spring Cloud](https://projects.spring.io/spring-cloud/) 是一个微服务框架，相比 Dubbo 等 RPC 框架, Spring Cloud 提供更全面的分布式系统解决方案。Spring 
+Cloud 对微服务基础框架 Netflix 的多个开源组件进行了封装，同时又实现了和云端平台以及和 Spring Boot 开发框架的集成。 Spring 
+Cloud 为微服务架构开发涉及的统一认证，配置管理，服务治理，熔断机制，动态路由等提供了一种简单的开发方式。
 
-Spring Cloud本身已经封装得足够简单，也够丰富。也许正是因为这种简单而丰富，使得想要使用它的团队望而却步。学习成本太高，历史包袱太重，维护成本太高等等一系列原因。
+Spring Cloud 本身已经封装得足够简单，也够丰富。也许正是因为这种简单而丰富，使得想要使用它的团队望而却步。学习成本太高，历史包袱太重，维护成本太高等等一系列原因。
 
-*Taroco*就是为了解决这一问题而诞生的。*Taroco*整合了Spring Cloud的**配置中心**、**注册中心**、**服务网关**，提供了一系列starter组件，
-同时提供**服务治理**、**服务监控**、**OAuth2权限认证**，支持**服务降级/熔断**、**基于标签(x-label)
-的路由**、**服务权重**，前端采用**vue+elementUI**，可以很好的解决转向Spring Cloud的一系列问题，努力打造全方位微服务企业级敏捷开发解决方案。
+*Taroco* 就是为了解决这一问题而诞生的。 *Taroco* 整合了 Spring Cloud 的**配置中心**、**注册中心**、**服务网关**，提供了一系列starter组件，
+同时提供**服务治理**、**服务监控**、**OAuth2 权限认证**，支持**服务降级/熔断**、**基于标签(x-label)
+的路由**、**服务权重**，前端采用**vue+elementUI**，可以很好的解决技术转向 Spring Cloud 的一系列问题，努力打造全方位的微服务敏捷开发解决方案。
 
-*Taroco*提供了基于Docker Compose的部署方式。配置文件统一放置在docs目录中，运行脚本案例在根目录中查找。
+*Taroco* 提供了基于 Docker Compose 的部署方式。配置文件统一放置在docs目录中，运行脚本案例在根目录中查找。
 
 ### 主要实现功能
-* Spring Cloud Eureka注册中心
-* Spring Cloud Config Server配置中心，统一管理配置信息
+
+* Spring Cloud Eureka 注册中心
+* Spring Cloud Config Server 配置中心，统一管理配置信息
 * Spring Cloud Zuul Gateway统一微服务网关配置，支持动态路由配置
 * 基于spring-boot-starter-actuator的自己实现的服务治理。包括日志、变量、映射等情况。
 * 基于Hystrix的聚合监控页面，包括单个服务和服务多个实例的监控。
