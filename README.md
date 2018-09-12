@@ -44,6 +44,14 @@ Spring Cloud本身已经封装得足够简单，也够丰富。也许正是因�
 * Npm 5+
 * vue 2.0+
 
+### 前端
+
+Taroco 前端基于开源项目 [D2Admin](https://github.com/d2-projects/d2-admin) 构建。
+
+D2Admin 中文文档：[D2Admin Document](https://d2-projects.github.io/d2-admin-doc/zh/)。
+
+<a href="https://github.com/d2-projects/d2-admin" target="_blank"><img src="https://raw.githubusercontent.com/FairyEver/d2-admin/master/doc/image/d2-admin@2x.png" width="200"></a>
+
 ### 架构图
 
 ![架构图](taroco-docs/files/taroco架构图.jpg)
@@ -67,8 +75,10 @@ Spring Cloud本身已经封装得足够简单，也够丰富。也许正是因�
 
 ### 友情链接
 
-- [D2-admin](https://github.com/d2-projects/d2-admin)
+- [管理系统前端模板 D2Admin](https://github.com/d2-projects/d2-admin)
 
 ## LICENSE
 
 [MIT](LICENSE "MIT")
+
+
