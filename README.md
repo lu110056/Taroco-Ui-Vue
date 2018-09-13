@@ -53,7 +53,7 @@ D2Admin 中文文档：[D2Admin Document](https://d2-projects.github.io/d2-admin
 
 ### 整体架构
 
-![架构图](taroco-docs/files/taroco架构图.jpg)
+![架构图](https://github.com/liuht777/Taroco/blob/master/taroco-docs/files/taroco%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg)
 
 ### 链接推荐
 
