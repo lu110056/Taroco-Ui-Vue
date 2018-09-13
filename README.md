@@ -51,15 +51,15 @@ D2Admin 中文文档：[D2Admin Document](https://d2-projects.github.io/d2-admin
 
 <a href="https://github.com/d2-projects/d2-admin" target="_blank"><img src="https://raw.githubusercontent.com/FairyEver/d2-admin/master/doc/image/d2-admin@2x.png" width="200"></a>
 
-### 架构图
+### 整体架构
 
 ![架构图](taroco-docs/files/taroco架构图.jpg)
 
 ### 链接推荐
 
-- Spring Boot 1.5.12.RELEASE官方文档 [https://docs.spring.io/spring-boot/docs/1.5.12.RELEASE/reference/htmlsingle/]
+- Spring Boot 1.5.12.RELEASE 官方文档 [https://docs.spring.io/spring-boot/docs/1.5.12.RELEASE/reference/htmlsingle/]
 (https://docs.spring.io/spring-boot/docs/1.5.12.RELEASE/reference/htmlsingle/ "Spring Boot")
-- Spring Cloud Edgware.SR4官方文档 [http://cloud.spring.io/spring-cloud-static/Dalston.SR4/multi/multi_spring-cloud.html](http://cloud.spring.io/spring-cloud-static/Edgware.SR4/multi/multi_spring-cloud.html "Spring Cloud")
+- Spring Cloud Edgware.SR4 官方文档 [http://cloud.spring.io/spring-cloud-static/Dalston.SR4/multi/multi_spring-cloud.html](http://cloud.spring.io/spring-cloud-static/Edgware.SR4/multi/multi_spring-cloud.html "Spring Cloud")
 
 ### 资源下载
 
