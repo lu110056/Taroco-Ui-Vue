@@ -57,8 +57,7 @@ D2Admin 中文文档：[D2Admin Document](https://d2-projects.github.io/d2-admin
 
 ### 链接推荐
 
-- Spring Boot 1.5.12.RELEASE 官方文档 [https://docs.spring.io/spring-boot/docs/1.5.12.RELEASE/reference/htmlsingle]
-(https://docs.spring.io/spring-boot/docs/1.5.12.RELEASE/reference/htmlsingle "Spring Boot")
+- [Spring Boot 1.5.12.RELEASE](https://docs.spring.io/spring-boot/docs/1.5.12.RELEASE/reference/htmlsingle) 官方文档 
 - Spring Cloud Edgware.SR4 官方文档 [http://cloud.spring.io/spring-cloud-static/Dalston.SR4/multi/multi_spring-cloud.html](http://cloud.spring.io/spring-cloud-static/Edgware.SR4/multi/multi_spring-cloud.html "Spring Cloud")
 
 ### 资源下载
