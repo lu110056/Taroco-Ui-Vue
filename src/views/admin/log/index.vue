@@ -9,8 +9,8 @@
         style="margin-bottom: -18px;">
           <el-form-item label="日志类型" prop="type">
             <el-select v-model="listQuery.type" filterable placeholder="请选择" clearable>
-              <el-option v-for="item in dicts" :key="item.value" :label="item.label" :value="item.value">
-              </el-option>
+              <el-option label="登录日志" value="Login"></el-option>
+              <el-option label="操作日志" value="Operation"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item>
@@ -32,18 +32,12 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" label="类型">
+      <el-table-column align="center" label="日志类型">
         <template slot-scope="scope">
           <span>
-            <el-button type="success" v-if="scope.row.type == 0">{{ scope.row.type | typeFilter }}</el-button>
-            <el-button type="danger" v-if="scope.row.type ==9">{{ scope.row.type | typeFilter }}</el-button>
+            <el-tag v-if="scope.row.type === 'Login'">登录日志</el-tag>
+            <el-tag type="success" v-if="scope.row.type === 'Operation'">操作日志</el-tag>
           </span>
-        </template>
-      </el-table-column>
-
-      <el-table-column label="请求接口" show-overflow-tooltip>
-        <template slot-scope="scope">
-          <span>{{ scope.row.requestUri }}</span>
         </template>
       </el-table-column>
 
@@ -53,7 +47,13 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" label="请求方式">
+      <el-table-column label="请求接口" show-overflow-tooltip>
+        <template slot-scope="scope">
+          <span>{{ scope.row.requestUri }}</span>
+        </template>
+      </el-table-column>
+
+      <el-table-column align="center" label="请求方法">
         <template slot-scope="scope">
           <span>{{ scope.row.method }}</span>
         </template>
@@ -65,15 +65,15 @@
         </template>
       </el-table-column>
 
-      <el-table-column align="center" label="请求时间">
+      <el-table-column align="center" label="花费时间">
         <template slot-scope="scope">
           <span>{{ scope.row.time}}</span>
         </template>
       </el-table-column>
 
-      <el-table-column align="center" label="创建时间">
+      <el-table-column align="center" label="记录时间">
         <template slot-scope="scope">
-          <span>{{ scope.row.createTime | moment('YYYY-MM-DD HH:mm') }}</span>
+          <span>{{ scope.row.createTime | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
 
@@ -102,7 +102,6 @@
 
 <script>
 import { delObj, fetchList } from '@/api/log'
-import { remote } from '@/api/dict'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -113,7 +112,6 @@ export default {
       total: null,
       sys_dict_add: false,
       listLoading: true,
-      dicts: [],
       listQuery: {
         page: 1,
         limit: 10,
@@ -125,21 +123,9 @@ export default {
   computed: {
     ...mapGetters(['permissions'])
   },
-  filters: {
-    typeFilter (type) {
-      const typeMap = {
-        0: '正常',
-        9: '异常'
-      }
-      return typeMap[type]
-    }
-  },
   created () {
     this.getList()
     this.sys_log_del = this.permissions['sys_log_del']
-    remote('log_type').then(response => {
-      this.dicts = response.data
-    })
   },
   methods: {
     getSerialNumber (index) {
