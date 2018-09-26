@@ -3,10 +3,10 @@
 </template>
 <script>
 export default {
-  name: 'Taroco-Zipkin',
+  name: 'Taroco-Turbine',
   data () {
     return {
-      src: `${process.env.VUE_APP_ZIPKIN_URL}`
+      src: `${process.env.VUE_APP_TURBINE_URL}/hystrix`
     }
   }
 }
