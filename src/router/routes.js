@@ -36,6 +36,22 @@ const frameIn = [
         component: () => import('@/pages/iframe')
       }
     ]
+  },
+  {
+    path: '/service',
+    redirect: '/service/info',
+    component: layoutHeaderAside,
+    children: [
+      {
+        path: 'info',
+        name: 'serviceInfo',
+        meta: {
+          requiresAuth: true,
+          title: '服务详情'
+        },
+        component: () => import('@/views/service/ServiceDetail')
+      }
+    ]
   }
 ]
 

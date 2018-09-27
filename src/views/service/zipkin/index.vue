@@ -6,7 +6,7 @@ export default {
   name: 'Taroco-Zipkin',
   data () {
     return {
-      src: `${process.env.VUE_APP_ZIPKIN_URL}`
+      src: `${process.env.VUE_APP_TURBINE_URL}/zipkin/`
     }
   }
 }
