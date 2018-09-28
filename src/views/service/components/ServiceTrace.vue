@@ -102,7 +102,7 @@ export default {
       })
     },
     query () {
-      const url = '/taroco-admin/api/applications/' + this.instanceId + '/trace'
+      const url = '/taroco-admin/api/applications/' + this.instanceId + '/httptrace'
       request({
         url: url,
         method: 'get'

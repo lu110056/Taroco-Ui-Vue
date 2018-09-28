@@ -56,7 +56,7 @@ export function permissionUpd (roleId, menuIds) {
   return request({
     url: '/admin/role/roleMenuUpd',
     method: 'put',
-    params: {
+    data: {
       roleId: roleId,
       menuIds: menuIds
     }

@@ -130,7 +130,7 @@ export default {
         case 'c':
           // Turbine监控
           let turbinePrefix = process.env.VUE_APP_TURBINE_URL
-          let url = turbinePrefix + '/hystrix/monitor?stream=' + encodeURIComponent(row.homePageUrl + row.metadata['management.path'] + '/hystrix.stream')
+          let url = turbinePrefix + '/hystrix/monitor?stream=' + encodeURIComponent(row.homePageUrl + 'actuator/hystrix.stream')
           this.$router.push({
             path: '/myiframe/urlPath',
             query: {
