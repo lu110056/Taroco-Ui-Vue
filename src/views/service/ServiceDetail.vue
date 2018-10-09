@@ -6,15 +6,18 @@
       <span class="name">实例ID: {{instanceId}} </span>
     </div>
     <el-tabs v-model="activeName" style="padding: 0 10px;">
+      <el-tab-pane label="服务详情" name="info">
+        <service-info :instanceId="instanceId"></service-info>
+      </el-tab-pane>
       <el-tab-pane label="服务日志" name="logger">
         <service-logger :instanceId="instanceId"></service-logger>
       </el-tab-pane>
       <el-tab-pane label="服务指标" name="metrics">
         <service-metrics :instanceId="instanceId"></service-metrics>
       </el-tab-pane>
-      <el-tab-pane label="映射列表" name="mappings">
+      <!-- <el-tab-pane label="映射列表" name="mappings">
         <service-mappings :instanceId="instanceId"></service-mappings>
-      </el-tab-pane>
+      </el-tab-pane> -->
       <el-tab-pane label="环境参数" name="envs">
         <service-envs :instanceId="instanceId"></service-envs>
       </el-tab-pane>
@@ -29,6 +32,7 @@
 </template>
 
 <script>
+import ServiceInfo from './components/ServiceInfo'
 import ServiceLogger from './components/ServiceLogger'
 import ServiceMetrics from './components/ServiceMetrics'
 import ServiceMappings from './components/ServiceMappings'
@@ -37,11 +41,11 @@ import ServiceTrace from './components/ServiceTrace'
 import util from '@/libs/util'
 export default {
   components: {
-    ServiceLogger, ServiceMetrics, ServiceMappings, ServiceEnvs, ServiceTrace
+    ServiceInfo, ServiceLogger, ServiceMetrics, ServiceMappings, ServiceEnvs, ServiceTrace
   },
   data () {
     return {
-      activeName: 'logger',
+      activeName: 'info',
       serviceName: '',
       instanceId: '',
       baseUrl: process.env.VUE_APP_BASE_URL

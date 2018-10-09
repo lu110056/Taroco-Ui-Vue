@@ -20,6 +20,7 @@
     <el-table-column
       prop="instanceId"
       label="实例id"
+      show-overflow-tooltip
       width="240">
     </el-table-column>
     <el-table-column
@@ -30,7 +31,8 @@
     <el-table-column
       prop="ipAddr"
       label="ip地址"
-      width="120">
+      show-overflow-tooltip
+      width="160">
     </el-table-column>
     <el-table-column
       prop="port"
@@ -40,11 +42,13 @@
     <el-table-column
       label="注册时间"
       prop="leaseInfo.registrationTime"
+      show-overflow-tooltip
       width="180">
     </el-table-column>
     <el-table-column
       label="上线时间"
       prop="leaseInfo.serviceUpTime"
+      show-overflow-tooltip
       width="180">
     </el-table-column>
     <el-table-column

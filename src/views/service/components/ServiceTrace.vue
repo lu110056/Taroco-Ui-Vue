@@ -23,47 +23,47 @@
             width="50">
             </el-table-column>
             <el-table-column
-                max-width="200"
+                width="400"
                 show-overflow-tooltip
                 label="请求路劲">
                 <template slot-scope="scope">
-                    <span>{{ scope.row.info.path }}</span>
+                    <span>{{ scope.row.request.uri }}</span>
                 </template>
             </el-table-column>
             <el-table-column
-                width="80"
+                width="100"
                 label="请求方法">
                 <template slot-scope="scope">
-                    <span>{{ scope.row.info.method }}</span>
+                    <span>{{ scope.row.request.method }}</span>
                 </template>
             </el-table-column>
             <el-table-column
                 width="110"
                 label="花费时间(ms)">
                 <template slot-scope="scope">
-                    <span>{{ scope.row.info.timeTaken }}</span>
+                    <span>{{ scope.row.timeTaken }}</span>
                 </template>
             </el-table-column>
             <el-table-column
+                width="200"
                 label="请求时间">
                 <template slot-scope="scope">
-                    <span>{{scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}')}}</span>
+                    <span>{{scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}:{s}')}}</span>
                 </template>
             </el-table-column>
             <el-table-column
-                max-width="240"
-                label="Request Headers"
+                width="80"
+                label="Status"
                 show-overflow-tooltip>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.info.headers.request }}</span>
+                <template slot-scope="scope" v-if="scope.row.response">
+                  <span v-if="scope.row.response.status === 200" style="color: green">{{scope.row.response.status}}</span>
+                  <span v-else style="color: red">{{scope.row.response.status}}</span>
                 </template>
             </el-table-column>
             <el-table-column
-                max-width="220"
-                label="Response Headers"
-                show-overflow-tooltip>
-                <template slot-scope="scope">
-                    <span>{{ scope.row.info.headers.response }}</span>
+                label="响应headers">
+                <template slot-scope="scope" v-if="scope.row.response">
+                    <span>{{ scope.row.response.headers }}</span>
                 </template>
             </el-table-column>
         </el-table>
@@ -98,7 +98,7 @@ export default {
         return
       }
       this.traces = this.traces.filter((item) => {
-        return item.info.path.indexOf(this.search.path) > 0
+        return item.request.uri.indexOf(this.search.path) > 0
       })
     },
     query () {
@@ -108,7 +108,7 @@ export default {
         method: 'get'
       })
         .then((res) => {
-          this.traces = res.data
+          this.traces = res.data.traces
           this.search.path = ''
         })
     }
