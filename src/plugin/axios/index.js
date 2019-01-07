@@ -44,6 +44,9 @@ service.interceptors.response.use(data => {
       switch (error.response.status) {
         case 400:
           errMsg = '错误请求, 请检查请求参数'
+          if (error.response.data.error_description) {
+            errMsg = error.response.data.error_description
+          }
           break
         case 401:
           errMsg = '当前操作没有权限'

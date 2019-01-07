@@ -1,17 +1,22 @@
 <template>
     <div>
+        <el-alert
+          :title="'activeProfiles:' + activeProfiles"
+          type="success"
+          style="margin-bottom:15px">
+        </el-alert>
         <el-row :gutter="10">
             <el-col :span="24">
                 <el-collapse accordion>
-                    <el-collapse-item class="box-card" v-for="(key, item) in envs" :key="instanceId + '-' + item">
+                    <el-collapse-item class="box-card" v-for="item in propertySources" :key="instanceId + '-' + item.name">
                         <template slot="title">
-                            <h3>
-                                <i class="el-icon-info"></i> {{item}}
-                            </h3>
+                          <h3>
+                            {{item.name}}
+                          </h3>
                         </template>
-                        <div v-for="(value, name) in key" :key="name" class="item">
+                        <div v-for="(value, name) in item.properties" :key="name" class="item">
                             <span>{{name}}</span>
-                            <span class="value">{{value}}</span>
+                            <span class="value">{{value.value}}</span>
                         </div>
                     </el-collapse-item>
                 </el-collapse>
@@ -30,28 +35,15 @@ export default {
   },
   data () {
     return {
-      envs: {}
+      envs: {},
+      activeProfiles: '',
+      propertySources: []
     }
   },
-  // mounted() {
-  //     this.initEditor();
-  // },
   created () {
     this.query()
   },
   methods: {
-    initEditor () {
-      var ace = require('brace')
-      require('brace/mode/javascript')
-      require('brace/theme/monokai')
-
-      let editor = ace.edit('editor')
-      editor.getSession().setMode('ace/mode/javascript')
-      this.editor.setTheme('ace/theme/monokai')
-      editor.setFontSize(16)
-      editor.getSession().setTabSize(2)
-      editor.setValue('{"name":"sds"}')
-    },
     query () {
       const url = '/taroco-admin/api/applications/' + this.instanceId + '/env'
       request({
@@ -60,6 +52,8 @@ export default {
       })
         .then((res) => {
           this.envs = res.data
+          this.activeProfiles = this.envs.activeProfiles[0]
+          this.propertySources = this.envs.propertySources
         })
     }
   }
