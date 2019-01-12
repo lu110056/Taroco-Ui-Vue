@@ -1,8 +1,8 @@
 <template>
   <d2-container class="page">
     <d2-page-cover
-      title="TAROCO"
-      sub-title="Spring Cloud微服务脚手架">
+      title="Spring Cloud微服务脚手架"
+      sub-title="简单、易用、开源">
       <img src="./image/taroco.png"/>
       <template slot="footer">
         <div class="page__btn-group">
