@@ -10,10 +10,10 @@
       <!-- 顶栏 -->
       <div class="d2-theme-header" flex-box="0">
         <div class="logo-group" :style="{width: asideCollapse ? asideWidthCollapse : asideWidth}">
-          <!-- <img v-if="asideCollapse" :src="`${$baseUrl}image/theme/${themeActiveSetting.name}/logo/icon-only.png`">
-          <img v-else :src="`${$baseUrl}image/theme/${themeActiveSetting.name}/logo/all.png`"> -->
-          <h1 v-if="asideCollapse">T</h1>
-          <h2 v-else>TAROCO</h2>
+          <img style="height:40px;margin-top:10px;" v-if="asideCollapse" :src="`${$baseUrl}image/theme/${themeActiveSetting.name}/logo/icon-only.png`">
+          <img style="height:40px;margin-top:10px;" v-else :src="`${$baseUrl}image/theme/${themeActiveSetting.name}/logo/all.png`">
+          <!-- <h1 v-if="asideCollapse">T</h1>
+          <h2 v-else>TAROCO</h2> -->
         </div>
         <div class="toggle-aside-btn" @click="handleToggleAside">
           <d2-icon name="bars"/>
