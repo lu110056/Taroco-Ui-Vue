@@ -2,7 +2,7 @@
 home: true
 heroImage: /logo-all.png
 actionText: 快速上手 →
-actionLink: /guide/
+actionLink: /guide/introduction/
 features:
 - title: Spring Boot 2.x
   details: Spring Boot 依赖于 Spring, Spring Boot 2.0 整合了 Spring5.0 的很多特性：WebFlux、Http2.0、Thymeleaf 3、OAuth 2.0、Metrics 等等。
