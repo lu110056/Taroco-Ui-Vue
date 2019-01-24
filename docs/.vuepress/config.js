@@ -28,6 +28,7 @@ module.exports = {
         nav: [
           { text: '首页', link: '/' },
           { text: '指南', link: '/guide/'},
+          { text: '学习', link: '/learn/eureka/'},
           { text: '开发手册', link: '/developer/'},
           { text: 'Github', 
             items: [
@@ -43,7 +44,18 @@ module.exports = {
               children: [
                 '',
                 'faststart/',
-                'deploy/'
+                'deploy/',
+                'config/'
+              ]
+            }
+          ],
+          '/learn/': [
+            {
+              collapsable: false,
+              children: [
+                'eureka/',
+                'oauth2/',
+                'service/'
               ]
             }
           ],
