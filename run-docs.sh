@@ -23,6 +23,6 @@ if docker images | grep docker_taroco-docs:latest
 fi
 
 echo 'build image'
-docker build --rm -t docker_taroco-docs:latest .
+docker build -f Dockerfile-docs --rm -t docker_taroco-docs:latest .
 echo 'run docker container'
 docker run -p 8080:80 --name taroco-docs -d docker_taroco-docs:latest
