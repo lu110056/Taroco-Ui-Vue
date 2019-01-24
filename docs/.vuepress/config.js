@@ -27,10 +27,8 @@ module.exports = {
         lastUpdated: '上次更新',
         nav: [
           { text: '首页', link: '/' },
-          { text: '指南', items: [
-            { text: '介绍', link: '/guide/introduction/' },
-            { text: '快速上手', link: '/guide/faststart/' }
-          ]},
+          { text: '指南', link: '/guide/'},
+          { text: '开发手册', link: '/developer/'},
           { text: 'Github', 
             items: [
               { text: '后端', link: 'https://github.com/liuht777/Taroco' },
@@ -39,19 +37,13 @@ module.exports = {
           }
         ],
         sidebar: {
-          '/guide/introduction/': [
+          '/guide/': [
             {
               collapsable: false,
               children: [
-                ''
-              ]
-            }
-          ],
-          '/guide/faststart/': [
-            {
-              collapsable: false,
-              children: [
-                ''
+                '',
+                'faststart/',
+                'deploy/'
               ]
             }
           ],
