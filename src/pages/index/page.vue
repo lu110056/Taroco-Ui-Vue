@@ -7,7 +7,9 @@
       <template slot="footer">
         <div class="page__btn-group">
           <span @click="$open('https://github.com/liuht777/Taroco')">后端地址</span> |
-          <span @click="$open('https://github.com/liuht777/Taroco-UI-NEW')">配套前端</span>
+          <span @click="$open('https://github.com/liuht777/Taroco-UI-NEW')">配套前端</span> |
+
+          <span @click="$open('http://118.190.154.85:8080')">在线文档</span>
         </div>
       </template>
     </d2-page-cover>
