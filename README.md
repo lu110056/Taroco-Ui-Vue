@@ -1,38 +1,55 @@
-# Taroco [演示地址](http://111.231.192.110)
+# Taroco
+
 - [配套前端地址](https://github.com/liuht777/Taroco-UI-NEW)
+- [在线文档](http://118.190.154.85:8080)
+- [演示地址](http://111.231.192.110)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/liuht777/Taroco)
 
 ## 前言
 
-'Taroco'是一整套的微服务企业级解决方案。是微服务敏捷开发的代表。
+'Taroco' 是一整套的微服务企业级解决方案。是微服务敏捷开发的代表。
 
 ## 项目介绍
 
-[Spring Cloud](https://projects.spring.io/spring-cloud/)是一个微服务框架，相比Dubbo等RPC框架, Spring Cloud提供更全面的分布式系统解决方案。Spring 
-Cloud对微服务基础框架Netflix的多个开源组件进行了封装，同时又实现了和云端平台以及和Spring Boot开发框架的集成。Spring 
-Cloud为微服务架构开发涉及的统一认证，配置管理，服务治理，熔断机制，动态路由等提供了一种简单的开发方式。
+[Spring Cloud](https://projects.spring.io/spring-cloud/) 是一个微服务框架，相比 Dubbo 等 RPC 框架, Spring Cloud 提供更全面的分布式系统解决方案。Spring 
+Cloud 对微服务基础框架 Netflix 的多个开源组件进行了封装，同时又实现了和云端平台以及和 Spring Boot 开发框架的集成。 Spring 
+Cloud 为微服务架构开发涉及的统一认证，配置管理，服务治理，熔断机制，动态路由等提供了一种简单的开发方式。
 
-Spring Cloud本身已经封装得足够简单，也够丰富。也许正是因为这种简单而丰富，使得想要使用它的团队望而却步。学习成本太高，历史包袱太重，维护成本太高等等一系列原因。
+Spring Cloud 本身已经封装得足够简单，也够丰富。也许正是因为这种简单而丰富，使得想要使用它的团队望而却步。学习成本太高，历史包袱太重，维护成本太高等等一系列原因。
 
-*Taroco*就是为了解决这一问题而诞生的。*Taroco*整合了Spring Cloud的**配置中心**、**注册中心**、**服务网关**，提供了一系列starter组件，
-同时提供**服务治理**、**服务监控**、**OAuth2权限认证**，支持**服务降级/熔断**、**基于标签(x-label)
-的路由**、**服务权重**，前端采用**vue+elementUI**，可以很好的解决转向Spring Cloud的一系列问题，努力打造全方位微服务企业级敏捷开发解决方案。
+*Taroco* 就是为了解决这一问题而诞生的。 *Taroco* 整合了 Spring Cloud 的**配置中心**、**注册中心**、**服务网关**，提供了一系列starter组件，
+同时提供**服务治理**、**服务监控**、**OAuth2 权限认证**，支持**服务降级/熔断**、**基于标签(x-label)
+的路由**、**服务权重**，前端采用**vue+elementUI**，可以很好的解决技术转向 Spring Cloud 的一系列问题，努力打造全方位的微服务敏捷开发解决方案。
 
-*Taroco*提供了基于Docker Compose的部署方式。配置文件统一放置在docs目录中，运行脚本案例在根目录中查找。
+*Taroco* 提供了基于 Docker Compose 的部署方式。配置文件统一放置在docs目录中，运行脚本案例在根目录中查找。
 
 ### 主要实现功能
-* Spring Cloud Eureka注册中心
-* Spring Cloud Config Server配置中心，统一管理配置信息
-* Spring Cloud Zuul Gateway统一微服务网关配置，支持动态路由配置
-* 基于spring-boot-starter-actuator的自己实现的服务治理。包括日志、变量、映射等情况。
-* 基于Hystrix的聚合监控页面，包括单个服务和服务多个实例的监控。
-* 基于Spring Security OAuth2的权限认证系统。采用JWT RSA非对称加密的形式进行token加密解密。
-* 支持基于权重以及基于标签的服务路由，支持动态配置服务权重及标签信息。通过控制用户标签以及动态路由的配置，满足各种各样请求策略。
-* 基于角色的RBAC权限控制。支持数据权限控制。
 
-### 开发环境
+* Spring Cloud Eureka 注册中心
+* Spring Cloud Config Server 配置中心，统一管理配置信息
+* Spring Cloud Zuul Gateway 统一微服务网关配置，支持动态路由配置
+* 基于 spring-boot-starter-actuator 的自实现的服务治理。包括日志、变量、映射等情况。
+* 基于 Hystrix 的聚合监控页面，包括单个服务和服务多个实例的监控。
+* 基于 Spring Security OAuth2 的权限认证系统。采用JWT RSA非对称加密的形式进行 token 加密解密。
+* 支持基于权重以及基于标签的服务路由，支持动态配置服务权重及标签信息。通过控制用户标签以及动态路由的配置，满足各种各样请求策略。
+* 基于角色的RBAC权限控制(用户、部门、角色、菜单、日志、字典、动态路由、oauth2 客户端)，并且支持数据权限控制。
+
+### 整体架构
+
+![架构图](https://github.com/liuht777/Taroco/blob/master/taroco-docs/files/taroco%E6%9E%B6%E6%9E%84%E5%9B%BE.jpg)
+
+### 项目截图
+
+![login](https://github.com/liuht777/Taroco/blob/master/taroco-docs/files/login.png)
+![menu](https://github.com/liuht777/Taroco/blob/master/taroco-docs/files/menu.png)
+![route](https://github.com/liuht777/Taroco/blob/master/taroco-docs/files/route.png)
+![monitor](https://github.com/liuht777/Taroco/blob/master/taroco-docs/files/monitor.png)
+![servers](https://github.com/liuht777/Taroco/blob/master/taroco-docs/files/servers.png)
+![api](https://github.com/liuht777/Taroco/blob/master/taroco-docs/files/api.png)
+
+### 后端环境
 
 * JDK1.8+
 * Spring Boot 1.5.12
@@ -40,19 +57,21 @@ Spring Cloud本身已经封装得足够简单，也够丰富。也许正是因�
 * Maven 3.0+
 * Redis 3.0+
 * MySQL 5.7
-* Node.js 8+
-* Npm 5+
-* vue 2.0+
+* IDEA
 
-### 架构图
+### 前端
 
-![架构图](taroco-docs/files/taroco架构图.jpg)
+Taroco 前端基于开源项目 [D2Admin](https://github.com/d2-projects/d2-admin) 构建。
+
+D2Admin 中文文档：[D2Admin Document](https://d2-projects.github.io/d2-admin-doc/zh/)。
+
+<a href="https://github.com/d2-projects/d2-admin" target="_blank"><img src="https://raw.githubusercontent.com/FairyEver/d2-admin/master/doc/image/d2-admin@2x.png" width="200"></a>
 
 ### 链接推荐
 
-- Spring Boot 1.5.12.RELEASE官方文档 [https://docs.spring.io/spring-boot/docs/1.5.12.RELEASE/reference/htmlsingle/]
-(https://docs.spring.io/spring-boot/docs/1.5.12.RELEASE/reference/htmlsingle/ "Spring Boot")
-- Spring Cloud Edgware.SR4官方文档 [http://cloud.spring.io/spring-cloud-static/Dalston.SR4/multi/multi_spring-cloud.html](http://cloud.spring.io/spring-cloud-static/Edgware.SR4/multi/multi_spring-cloud.html "Spring Cloud")
+- [Spring Boot 1.5.12.RELEASE](https://docs.spring.io/spring-boot/docs/1.5.12.RELEASE/reference/htmlsingle) 官方文档 
+- [Spring Cloud Edgware.SR4](http://cloud.spring.io/spring-cloud-static/Dalston.SR4/multi/multi_spring-cloud.html) 官方文档
+- [Spring Security OAuth2](http://projects.spring.io/spring-security-oauth/docs/oauth2.html) 开发者指南
 
 ### 资源下载
 
@@ -67,8 +86,10 @@ Spring Cloud本身已经封装得足够简单，也够丰富。也许正是因�
 
 ### 友情链接
 
-- [D2-admin](https://github.com/d2-projects/d2-admin)
+- [管理系统前端模板 D2Admin](https://github.com/d2-projects/d2-admin)
 
 ## LICENSE
 
 [MIT](LICENSE "MIT")
+
+
