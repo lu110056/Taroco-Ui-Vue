@@ -121,10 +121,6 @@ feign:
       enabled: true
 ```
 
-## taroco-admin-test.yml
-
-服务治理配置, 目前没有任何内容
-
 ## taroco-authentication-server-test.yml
 
 认证服务配置
@@ -162,16 +158,21 @@ spring:
     suffix: .ftl
     template-loader-path: classpath:/templates/
 
-# permitALl
-ignore:
-  urls:
-    - /actuator/**
-    - /authentication/**
-    - /**/*.css
-    - /**/*.jpg
-    - /**/*.png
-    - /**/*.woff2
-    - /**/*.js
+# oauth2 配置
+taroco:
+  oauth2:
+    key-store:
+      location: classpath:taroco.jks
+      secret: taroco!@#$
+      alias: taroco
+    url-permit-all:
+      - /actuator/**
+      - /authentication/**
+      - /**/*.css
+      - /**/*.jpg
+      - /**/*.png
+      - /**/*.woff2
+      - /**/*.js
 ```
 
 ## taroco-gateway-test.yml
@@ -211,22 +212,22 @@ security:
       jwt:
          key-uri: ${base.auth.server}/oauth/token_key #解析jwt令牌所需要密钥的地址
 
-ignore:
-  urls:
-    - /actuator/**
-    - /mobile/**
-    - /auth/**
-    - /admin/code/*
-    - /admin/smsCode/*
-    - /admin/user/info
-    - /admin/menu/userMenu
-    - /swagger-resources/**
-    - /swagger-ui.html
-    - /*/v2/api-docs
-    - /swagger/api-docs
-    - /webjars/**
-  clients:
-    - app
+# oauth2 配置
+taroco:
+  oauth2:
+    url-permit-all:
+      - /actuator/**
+      - /mobile/**
+      - /auth/**
+      - /admin/code/*
+      - /admin/smsCode/*
+      - /admin/user/info
+      - /admin/menu/userMenu
+      - /swagger-resources/**
+      - /swagger-ui.html
+      - /*/v2/api-docs
+      - /swagger/api-docs
+      - /webjars/**
 ```
 
 ## taroco-monitor-test.yml
