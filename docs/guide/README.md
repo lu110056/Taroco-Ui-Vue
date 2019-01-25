@@ -20,11 +20,7 @@
 │   ├── taroco-swagger2-spring-boot-starter --自定义封装swagger2配置
 ├── taroco-docs --文档、截图、docker文件、初始化脚本
 ├── taroco-gateway --微服务网关
-├── taroco-oauth2 --认证中心
-│   ├── authentication-server --统一认证服务
-│   ├── oauth2-config --oauth2抽象封装
-│   ├── sso-demo1 --sso案例
-│   ├── sso-demo1 --sso案例
+├── taroco-authentication --统一认证服务
 ├── taroco-rbac --基于角色的权限控制服务
 ```
 
