@@ -54,7 +54,14 @@ module.exports = {
               collapsable: false,
               children: [
                 'eureka/',
-                'oauth2/',
+                'oauth2/'
+              ]
+            }
+          ],
+          '/developer/': [
+            {
+              collapsable: false,
+              children: [
                 'service/'
               ]
             }

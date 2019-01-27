@@ -25,13 +25,32 @@
     }
 ```
 
-### 基于serviceId级别的限流
-* 在微服务中，我们经常会提到限流。分布式场景下的限流，我们通常会借助于redis来实现，存储两个key，一个用于计时，一个用于计数。请求每调用一次，计数器增加1，若在计时器时间内计数器未超过阈值，则可以处理任务。下面我们看看在Spring Cloud中如何实现微服务级别的限流。好了，进入正题，请看下图。（zuul核心过滤器）
-![zuul核心过滤器](https://gitee.com/uploads/images/2017/1224/171622_be71911f_629056.png "zuul核心过滤器.png")
-* 通过上图，我们了解了zuul默认的filter有哪些，以及各自都是做什么的。我们只需要在PreDecorationFilter之后加入我们自己的限流filter即可。
-* 为什么要在PreDecorationFilter之后加入我们的filter？是因为经过PreDecorationFilter之后，zuul请求上下文中就会有我们需要的信息，serviceId（基于服务发现的路由ribbon+hystrix）和routeHost（基于url的路由）。
-* 限流算法有两种：漏桶算法和令牌桶算法。我们使用Google开源工具包Guava提供的限流工具类RateLimiter，该类基于令牌桶算法来完成限流，非常简单易用。
-* 通过配置zuul.rate-limit.permits-per-second设置具体的限流指标。默认限流指标是1000.0/s，表示每秒最大1000并发量，多余的将直接返回TOO_MANY_REQUESTS，具体代码参照:PreRequestRateLimitFilter。
+### 网关限流
+
+* taroco使用开源 zuul 限流工具 `spring-cloud-zuul-ratelimit`, 进行服务级别的限流。具体配置可参考[spring-cloud-zuul-ratelimit](https://github.com/marcosbarbero/spring-cloud-zuul-ratelimit)
+
+### 应用限流
+
+* taroco 内置了基于 redis 的应用级别限流, 需要引入依赖:
+
+``` java
+<dependency>
+  <groupId>cn.taroco</groupId>
+  <artifactId>taroco-redis-spring-boot-starter</artifactId>
+</dependency>
+```
+
+* 在Controller方法添加注解`@SpringControllerLimit`
+
+* 添加配置
+
+``` java
+taroco.redis.limit.value=100
+```
+
+::: tip
+你也可以自行扩展相关类, 达到更好的限流效果
+:::
 
 ### 基于标签的路由
 * 入口请求含有各种标签，然后我们可以根据标签幻化出各种各样的路由规则。例如只有标注为粉丝的用户才使用新版本，例如标注为中国的用户请求必须发送到中国的服务器，例如标注为写的请求必须发送到专门的写服务实例（读写分离），等等等等。
@@ -40,7 +59,7 @@
 * * RestTemplate请求的方式参照XlabelHttpRequestInterceptor
 * * Feign请求的方式参照 
 
-### 服务治理端点Spring Boot Actuator以及Hystrix
+### Actuator&Hystrix
 * actuator是spring boot提供的对服务的自省和监控的集成功能，可以对应用系统进行配置查看、相关功能统计等。通过taroco-ribbon-spring-boot-starter引入了actuator，Hystrix并且默认开启了@EnableCircuitBreaker。
 * 在我们服务治理的服务详情页面，可以轻松查看甚至修改服务的各项指标信息。包括服务日志、性能指标、映射列表、环境参数、请求追踪、Heap dump等。
 * 在写自己的服务时可以直接使用@HystrixCommand进行熔断的使用，关于Hystrix会在专门的章节进行详细的讲解。
